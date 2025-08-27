@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seth Howell Books</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="accordion-container">
+        <div class="accordion-panel closed light-1" data-panel="home">
+            <div class="panel-header">Home</div>
+            <div class="panel-content">
+                <div class="panel-title">Seth Howell</div>
+                <div class="panel-subtitle">I write books and other stuff</div>
+                <p>This is where you can find out about most of my writing work in various forms.</p>
+            </div>
+        </div>
+
+        <div class="accordion-panel closed light-2 about" data-panel="about">
+            <div class="panel-header">Bio</div>
+            <div class="panel-content">
+                <div class="panel-title">About Me</div>
+                <div class="content-container">
+                    <img src="me.jpg" alt="a portrait of myself">
+                    <div class="right">
+                        <p>I am a software engineer who is addicted to stories and storytelling.</p>
+                        <p>Many of my engineering side projects involve storytelling in one way or another, from an app for collaberative story construction, to plugins that help organize worldbuilding.</p>
+                        <p>As yet unpublished and un-represented....but trying.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-panel closed light-3" data-panel="info">
+            <div class="panel-header">Info</div>
+            <div class="panel-content">
+                <div class="info-section">
+                    <div class="panel-title">Information and Updates</div>
+                    <div class="panel-subtitle">Whats goin' on? What am I writing and how is it going? (not including non-writing projects)</div>
+                    <div class="info-category">
+                        <strong>Alloys Trilogy:</strong>
+                        <p class="date">Updated: 08.27.2025</p>
+                        <div class="info-list">Currently rewriting the first 3 chapters to better support the structure of the story. The outline is fully revised and updated and what I would all 'feature complete'. Now I just gotta finish the manuscript</div>
+                    </div>
+                    <div class="info-category">
+                        <strong>Rewind:</strong>
+                        <p class="date">Updated: 08.27.2025</p>
+                        <div class="info-list">It's in Alex's hands currently. Sitting around chapter 15 or so. Manuscript something like 30% complete</div>
+                    </div>
+                    <div class="info-category">
+                        <strong>Hades - Out of Office:</strong>
+                        <p class="date">Updated: 08.27.2025</p>
+                        <div class="info-list">Somewhere around 50% complete, but this is the heavier half.</div>
+                    </div>
+                    <div class="info-category">
+                        <strong>darlings.rip:</strong>
+                        <p class="date">Updated: 08.27.2025</p>
+                        <div class="info-list">on hold for now, pending my move to a new house and tarrif info. currently building website still. <a href="https://darlings.rip" target="_blank">newsletter signups</a> still. please signup</div>
+                    </div>
+                    <div class="info-category">
+                        <strong>Other Projects:</strong>
+                        <p class="date">Updated: 08.27.2025</p>
+                        <div class="info-list">YouTube channel, instagram and other writing content still ongoing.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-panel closed light-4" data-panel="projects">
+            <div class="panel-header">Projects</div>
+            <div class="panel-content">
+                <div class="panel-title">Projects</div>
+                <div class="panel-subtitle">My Written Projets</div>
+                <div class="project-grid">
+                    <div class="project-item">
+                        <h4>The Alloys Trilogy</h4>
+                        <p>Hard Scifi Novel Trilogy. {{logline-TBD}}</p>
+                    </div>
+                    <div class="project-item">
+                        <h4>Rewind</h4>
+                        <p>Standalone Contemporary Fiction with Scifi Elements. {{logline-TBD}}</p>
+                    </div>
+                    <div class="project-item">
+                        <h4>Hades - Out of Office</h4>
+                        <p>Short Story Fiction. {{logline-TBD}}</p>
+                    </div>
+                    <div class="project-item">
+                        <h4>The Librarians</h4>
+                        <p>Fantasy Novel Series. {{logline-TBD}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-panel closed" data-panel="contact">
+            <div class="panel-header">Contact</div>
+            <div class="panel-content">
+                <div class="panel-title">Contact</div>
+                <div class="panel-subtitle">Get In Touch</div>
+                <div class="contact-info">
+                    <p><strong>Email:</strong> <a href="mailto:hello@sethwritesbooks.com">hello@sethwritesbooks.com</a></p>
+                    <p><strong>Instagram:</strong> <a href="https://instagram.com/seth.books">@seth.books</a></p>
+                    <div class="additional-links-header">Other Stuff</div>
+                    <p><a href="https://punk.dev" target="_blank" class="punk">.punk Labs</a></p>
+                    <p><a href="https://pathlightmaps.com" target="_blank" class="punk">Pathlight.Maps</a></p>
+                    <p><a href="https://darlings.rip" target="_blank" class="punk">darlings.rip</a></p>
+                    <br>
+                    <p>I do a great many things, and have a great many projects. Open to business inquiries for worldbuilding or writing.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const panels = document.querySelectorAll('.accordion-panel');
+        
+        function openPanel(targetPanel) {
+            // Immediately hide content of closing panels
+            panels.forEach(p => {
+                if (p !== targetPanel && p.classList.contains('open')) {
+                    p.classList.add('closing');
+                }
+            });
+            
+            // Close all panels
+            panels.forEach(p => {
+                p.classList.remove('open');
+                p.classList.add('closed');
+            });
+            
+            // Open target panel
+            targetPanel.classList.remove('closed', 'closing');
+            targetPanel.classList.add('open');
+            
+            // Update URL hash
+            const panelId = targetPanel.getAttribute('data-panel');
+            window.history.replaceState(null, null, `#${panelId}`);
+            
+            // Remove closing class after transition
+            setTimeout(() => {
+                panels.forEach(p => p.classList.remove('closing'));
+            }, 100);
+        }
+        
+        panels.forEach(panel => {
+            panel.addEventListener('click', () => {
+                // Don't do anything if clicking on already open panel
+                if (panel.classList.contains('open')) {
+                    return;
+                }
+                
+                openPanel(panel);
+            });
+        });
+
+        // Handle initial page load and hash changes
+        function handleHashChange() {
+            const hash = window.location.hash.slice(1); // Remove #
+            const targetPanel = hash ? document.querySelector(`[data-panel="${hash}"]`) : null;
+            
+            if (targetPanel) {
+                openPanel(targetPanel);
+            } else {
+                // Default to 'about' if no hash or invalid hash
+                const aboutPanel = document.querySelector('[data-panel="about"]');
+                if (aboutPanel) {
+                    openPanel(aboutPanel);
+                }
+            }
+        }
+        
+        // Handle browser back/forward
+        window.addEventListener('hashchange', handleHashChange);
+        
+        // Handle initial page load
+        document.addEventListener('DOMContentLoaded', handleHashChange);
+
+        // Handle keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            const openPanel = document.querySelector('.accordion-panel.open');
+            const allPanels = Array.from(panels);
+            const currentIndex = allPanels.indexOf(openPanel);
+            
+            if (e.key === 'ArrowRight' && currentIndex < allPanels.length - 1) {
+                openPanel(allPanels[currentIndex + 1]);
+            } else if (e.key === 'ArrowLeft' && currentIndex > 0) {
+                openPanel(allPanels[currentIndex - 1]);
+            }
+        });
+    </script>
+</body>
+</html>
