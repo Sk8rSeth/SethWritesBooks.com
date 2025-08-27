@@ -162,10 +162,10 @@
             if (targetPanel) {
                 openPanel(targetPanel);
             } else {
-                // Default to 'about' if no hash or invalid hash
-                const aboutPanel = document.querySelector('[data-panel="about"]');
-                if (aboutPanel) {
-                    openPanel(aboutPanel);
+                // Default to 'home' if no hash or invalid hash
+                const homePanel = document.querySelector('[data-panel="home"]');
+                if (homePanel) {
+                    openPanel(homePanel);
                 }
             }
         }
